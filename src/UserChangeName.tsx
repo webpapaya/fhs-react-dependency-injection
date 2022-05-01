@@ -1,5 +1,4 @@
 import React, {ChangeEvent, FormEvent, useCallback, useState} from 'react';
-import './App.css';
 import {User} from "./useUsers";
 
 type UserChangeNameProps = {

@@ -1,5 +1,4 @@
 import React, {ChangeEvent, FormEvent, useCallback, useState} from 'react';
-import './App.css';
 
 export const UserCreate = (props: { createUser: (name: string) => void }) => {
   const [name, setName] = useState('')
