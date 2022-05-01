@@ -1,18 +1,18 @@
 import React, {ChangeEvent, FormEvent, useCallback, useState} from 'react';
-import {User} from "./useUsers";
+import {User} from "./domain/user";
 
 type UserChangeNameProps = {
     user: User,
     renameUser: (id: string, name: string) => void
 };
 
-export const UserChangeName = (props: UserChangeNameProps) => {
-  const [name, setName] = useState(props.user.name)
+export const UserChangeName = ({ user, renameUser }: UserChangeNameProps) => {
+  const [name, setName] = useState(user.name)
 
   const onSubmit = useCallback((evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault()
-    props.renameUser(props.user.id, name)
-  }, [props.renameUser, props.user, name]);
+    renameUser(user.id, name)
+  }, [renameUser, user, name]);
 
   const onChange = useCallback((evt: ChangeEvent<HTMLInputElement>) => {
     setName(evt.target.value);
@@ -21,7 +21,7 @@ export const UserChangeName = (props: UserChangeNameProps) => {
   return (
       <form onSubmit={onSubmit}>
           <div>
-              Current Name: { props.user.name }
+              Current Name: { user.name }
           </div>
         <input
             name="name"

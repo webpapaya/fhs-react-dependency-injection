@@ -1,22 +1,7 @@
 import {useState} from "react";
-import { v4 as uuid } from 'uuid'
-
-export type User = {
-    id: string,
-    name: string
-}
-
-class DomainError extends Error {
-    constructor(public message: string) {
-        super(message)
-    }
-}
-
-class NotFoundError extends Error {
-    constructor() {
-        super('Not found')
-    }
-}
+import {v4 as uuid} from 'uuid'
+import {User} from "./domain/user";
+import {DomainError, NotFoundError} from "./domain/errors";
 
 export const useUsers = () => {
     const [users, setUsers] = useState<User[]>(

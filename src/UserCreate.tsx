@@ -1,12 +1,14 @@
 import React, {ChangeEvent, FormEvent, useCallback, useState} from 'react';
 
-export const UserCreate = (props: { createUser: (name: string) => void }) => {
+type UserCreateProps = { createUser: (name: string) => void };
+
+export const UserCreate = ({ createUser }: UserCreateProps) => {
   const [name, setName] = useState('')
 
   const onSubmit = useCallback((evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault()
-    props.createUser(name)
-  }, [props.createUser, name]);
+    createUser(name)
+  }, [createUser, name]);
 
   const onChange = useCallback((evt: ChangeEvent<HTMLInputElement>) => {
     setName(evt.target.value);
