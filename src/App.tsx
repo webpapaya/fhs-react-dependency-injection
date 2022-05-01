@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {UserCreate} from "./UserCreate";
+import {useUsers} from "./useUsers";
+import {UserChangeName} from "./UserChangeName";
 
 function App() {
+  const { users, createUser, renameUser } = useUsers()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <UserCreate createUser={createUser}/>
+      { users.map((user) => (
+        <UserChangeName
+          key={user.id}
+          user={user}
+          renameUser={renameUser}
+        />
+      )) }
     </div>
   );
 }
