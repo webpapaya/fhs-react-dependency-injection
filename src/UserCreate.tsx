@@ -15,13 +15,13 @@ export const UserCreate = ({ createUser }: UserCreateProps) => {
   }, [setName]);
 
   return (
-      <form onSubmit={onSubmit}>
-        <input
-            name="name"
-            onChange={onChange}
-            value={name}
-        />
-        <button type="submit">Create User</button>
-      </form>
+    <form onSubmit={onSubmit}>
+      <input
+          name="name"
+          onChange={onChange}
+          value={name}
+      />
+      <button type="submit">Create User</button>
+    </form>
   );
 };

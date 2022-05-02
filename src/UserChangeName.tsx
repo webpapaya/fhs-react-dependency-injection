@@ -19,16 +19,16 @@ export const UserChangeName = ({ user, renameUser }: UserChangeNameProps) => {
   }, [setName]);
 
   return (
-      <form onSubmit={onSubmit}>
-          <div>
-              Current Name: { user.name }
-          </div>
-        <input
-            name="name"
-            onChange={onChange}
-            value={name}
-        />
-        <button type="submit">Change name of</button>
-      </form>
+    <form onSubmit={onSubmit}>
+      <div>
+        Current Name: {user.name}
+      </div>
+      <input
+          name="name"
+          onChange={onChange}
+          value={name}
+      />
+      <button type="submit">Change name of</button>
+    </form>
   );
 };
